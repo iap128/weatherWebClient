@@ -7,7 +7,7 @@ const Temperature = () => {
   const [temp, setTemp] = useState<any>([]);
 
   useEffect(() => {
-    const fetchTemp = async () => {
+    const fetchValue = async () => {
       try {
         const res = await axios.get('http://localhost:3306/temperature');
         setTemp(res.data);
@@ -16,12 +16,12 @@ const Temperature = () => {
       }
     };
 
-    fetchTemp();
+    fetchValue();
   }, []);
   return (
     <WeatherCard
       title='Temperature'
-      value={temp[0].temp}
+      value={temp[0]?.temp}
       suffix='f'
       icon={faTemperatureThreeQuarters}
     />
