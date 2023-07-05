@@ -61,6 +61,28 @@ app.get('/pressure', (req, res) => {
   });
 });
 
+app.get('/windDirection', (req, res) => {
+  const query = 'SELECT direction from windDirection ORDER BY id DESC LIMIT 1';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+app.get('/gustDirection', (req, res) => {
+  const query = 'SELECT direction from gustDirection ORDER BY id DESC LIMIT 1';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
 app.listen(dbPort, () => {
   console.log('Connected to backend');
 });

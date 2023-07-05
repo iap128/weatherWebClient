@@ -1,10 +1,10 @@
 import { Col, Row } from 'antd';
-import WeatherCard from '../components/WeatherCard';
-import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import Temperature from './Temperature';
 import WindSpeed from './WindSpeed';
 import GustSpeed from './GustSpeed';
 import Pressure from './Pressure';
+import WindDirection from './WindDirection';
+import GustDirection from './GustDirection';
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
           <WindSpeed />
         </Col>
         <Col span={8}>
-          <WeatherCard title='Wind Direction' value='86' suffix='degrees' icon={faCompass} />
+          <WindDirection />
         </Col>
       </Row>
       <Row gutter={16}>
@@ -28,7 +28,7 @@ const Home = () => {
           <GustSpeed />
         </Col>
         <Col span={8}>
-          <WeatherCard title='Gust Direction' value='86' suffix='degrees' icon={faCompass} />
+          <GustDirection />
         </Col>
       </Row>
     </div>
