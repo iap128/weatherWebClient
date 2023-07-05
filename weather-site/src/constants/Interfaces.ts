@@ -5,4 +5,5 @@ export interface CardProps {
   value: string;
   suffix: string;
   icon: IconDefinition;
+  tooltip?: string;
 }
