@@ -18,7 +18,7 @@ const db = createConnection({
 });
 
 app.get('/temperature', (req, res) => {
-  const query = 'SELECT temp from temperature ORDER BY id DESC LIMIT 1';
+  const query = 'SELECT * from temperature ORDER BY id DESC LIMIT 1';
   db.query(query, (err, data) => {
     if (err) {
       return res.json(err);
