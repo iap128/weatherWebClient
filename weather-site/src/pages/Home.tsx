@@ -5,10 +5,12 @@ import GustSpeed from './GustSpeed';
 import Pressure from './Pressure';
 import WindDirection from './WindDirection';
 import GustDirection from './GustDirection';
+import LastUpdate from '../components/LastUpdate';
 
 const Home = () => {
   return (
     <div>
+      <LastUpdate />
       <Row gutter={16}>
         <Col span={8}>
           <Temperature />
