@@ -83,6 +83,28 @@ app.get('/gustDirection', (req, res) => {
   });
 });
 
+app.get('/humidity', (req, res) => {
+  const query = 'SELECT humidity from humidity ORDER BY id DESC LIMIT 1';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+app.get('/rain', (req, res) => {
+  const query = 'SELECT quantity from rain ORDER BY id DESC LIMIT 1';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
 app.listen(dbPort, () => {
   console.log('Connected to backend');
 });

@@ -6,4 +6,5 @@ export interface CardProps {
   suffix: string;
   icon: IconDefinition;
   tooltip?: string;
+  hasGraph?: boolean;
 }

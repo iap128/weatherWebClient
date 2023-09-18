@@ -3,10 +3,11 @@ import { CardProps } from '../constants/Interfaces';
 import { Button, Card, Statistic, Tooltip } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { InfoCircleOutlined } from '@ant-design/icons';
+import GraphModal from './GraphModal';
 
-const WeatherCard: FC<CardProps> = ({ title, value, suffix, icon, tooltip }) => {
+const WeatherCard: FC<CardProps> = ({ title, value, suffix, icon, tooltip, hasGraph }) => {
   return (
-    <Card>
+    <Card actions={hasGraph ? [<GraphModal />] : undefined}>
       <div
         style={{
           display: 'flex',

@@ -22,6 +22,7 @@ const WindSpeed = () => {
       suffix='knots'
       icon={faWind}
       tooltip={value[0]?.speed + ' mph'}
+      hasGraph
     />
   );
 };

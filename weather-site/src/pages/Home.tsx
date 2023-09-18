@@ -6,6 +6,8 @@ import Pressure from './Pressure';
 import WindDirection from './WindDirection';
 import GustDirection from './GustDirection';
 import LastUpdate from '../components/LastUpdate';
+import Humidity from './Humidity';
+import Rain from './Rain';
 
 const Home = () => {
   return (
@@ -31,6 +33,14 @@ const Home = () => {
         </Col>
         <Col span={8}>
           <GustDirection />
+        </Col>
+      </Row>
+      <Row gutter={16}>
+        <Col span={8}>
+          <Humidity />
+        </Col>
+        <Col span={8}>
+          <Rain />
         </Col>
       </Row>
     </div>
