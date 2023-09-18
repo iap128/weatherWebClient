@@ -1,9 +1,16 @@
 import { Button, Modal } from 'antd';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import WeatherGraph from './WeatherGraph';
 import { DownOutlined } from '@ant-design/icons';
+import { GraphProps } from '../constants/Interfaces';
 
-const GraphModal = () => {
+interface OwnProps {
+  title: string;
+}
+
+type Props = OwnProps & GraphProps;
+
+const GraphModal: FC<Props> = ({ title, ...props }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -18,7 +25,7 @@ const GraphModal = () => {
     <div>
       <Button shape='circle' size='small' onClick={showModal} icon={<DownOutlined />} />
       <Modal
-        title='My Modal'
+        title={title}
         open={isModalOpen}
         onCancel={handleCancel}
         footer={[
@@ -27,7 +34,7 @@ const GraphModal = () => {
           </Button>,
         ]}
       >
-        <WeatherGraph />
+        <WeatherGraph {...props} />
       </Modal>
     </div>
   );

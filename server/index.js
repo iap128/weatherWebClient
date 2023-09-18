@@ -17,6 +17,9 @@ const db = createConnection({
   database: dbName,
 });
 
+// --------------------
+// Queries for homepage
+
 app.get('/temperature', (req, res) => {
   const query = 'SELECT * from temperature ORDER BY id DESC LIMIT 1';
   db.query(query, (err, data) => {
@@ -104,6 +107,44 @@ app.get('/rain', (req, res) => {
     return res.json(data);
   });
 });
+
+
+
+// ----------------------
+// Queries for 1 hour
+app.get('/windSpeed1hr', (req, res) => {
+  const query = 'SELECT speed, date from windSpeed ORDER BY id DESC LIMIT 30';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+
+
+
+
+
+
+
+
+// ---------------------
+// Queries for 12 hours
+app.get('/windSpeed12hr', (req, res) => {
+  const query = 'SELECT speed, date from windSpeed ORDER BY id DESC LIMIT 360';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+
 
 app.listen(dbPort, () => {
   console.log('Connected to backend');
