@@ -20,6 +20,12 @@ const Temperature = () => {
       value={value[0]?.temp}
       suffix='f'
       icon={faTemperatureThreeQuarters}
+      hasGraph={{
+        dataKey: 'temp',
+        type1Hr: 'temperature1hr',
+        type12Hr: 'temperature12hr',
+        type24Hr: '',
+      }}
     />
   );
 };
