@@ -4,6 +4,7 @@ import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
 import type { RadioChangeEvent } from 'antd';
 import { GraphProps } from '../constants/Interfaces';
 import { fetchCardData } from '../constants/CardProvider';
+import { useEffectOnce } from 'usehooks-ts';
 
 const radioOptions = [
   { label: '1 Hour', value: 1 },
@@ -35,9 +36,14 @@ const WeatherGraph: FC<GraphProps> = ({ dataKey, type1Hr, type12Hr, type24Hr }) 
   };
 
   const getData = async () => {
+    console.log(queryType);
     const data = await fetchCardData(queryType);
     setValue(data);
   };
+
+  useEffectOnce(() => {
+    getData();
+  });
 
   return (
     <div>

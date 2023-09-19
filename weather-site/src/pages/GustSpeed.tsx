@@ -22,6 +22,12 @@ const GustSpeed = () => {
       suffix='knots'
       icon={faWind}
       tooltip={value[0]?.speed + ' mph'}
+      hasGraph={{
+        dataKey: 'speed',
+        type1Hr: 'gustSpeed1hr',
+        type12Hr: 'gustSpeed12hr',
+        type24Hr: '',
+      }}
     />
   );
 };

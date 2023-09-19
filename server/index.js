@@ -123,6 +123,17 @@ app.get('/windSpeed1hr', (req, res) => {
   });
 });
 
+app.get('/gustSpeed1hr', (req, res) => {
+  const query = 'SELECT speed, date from gustSpeed ORDER BY id DESC LIMIT 30';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
 app.get('/temperature1hr', (req, res) => {
   const query = 'SELECT temp, date from temperature ORDER BY id DESC LIMIT 30';
   db.query(query, (err, data) => {
@@ -146,6 +157,17 @@ app.get('/temperature1hr', (req, res) => {
 // Queries for 12 hours
 app.get('/windSpeed12hr', (req, res) => {
   const query = 'SELECT speed, date from windSpeed ORDER BY id DESC LIMIT 360';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+app.get('/gustSpeed12hr', (req, res) => {
+  const query = 'SELECT speed, date from gustSpeed ORDER BY id DESC LIMIT 360';
   db.query(query, (err, data) => {
     if (err) {
       return res.json(err);
