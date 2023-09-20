@@ -2,6 +2,8 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { fetchCardData } from '../constants/CardProvider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const LastUpdate = () => {
   const [lastUpdate, setLastUpdate] = useState('2');
@@ -37,6 +39,7 @@ const LastUpdate = () => {
       <Typography.Text>Last update: </Typography.Text>
       <Typography.Text type='secondary'>{diff}</Typography.Text>
       <Typography.Text type='secondary'>{agoString}</Typography.Text>
+      {diff > 200 && <FontAwesomeIcon icon={faTriangleExclamation} style={{ color: 'red' }} />}
       <Button
         icon={<ReloadOutlined />}
         style={{ margin: '5px' }}
