@@ -190,6 +190,46 @@ app.get('/temperature12hr', (req, res) => {
 
 
 
+
+
+
+// ---------------------
+// Queries for 24 hours
+app.get('/windSpeed24hr', (req, res) => {
+  const query = 'SELECT speed, date from windSpeed ORDER BY id DESC LIMIT 720';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+app.get('/gustSpeed24hr', (req, res) => {
+  const query = 'SELECT speed, date from gustSpeed ORDER BY id DESC LIMIT 720';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+app.get('/temperature24hr', (req, res) => {
+  const query = 'SELECT temp, date from temperature ORDER BY id DESC LIMIT 720';
+  db.query(query, (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+
+    return res.json(data);
+  });
+});
+
+
+
 app.listen(dbPort, () => {
   console.log('Connected to backend');
 });

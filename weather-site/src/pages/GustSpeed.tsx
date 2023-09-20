@@ -26,7 +26,7 @@ const GustSpeed = () => {
         dataKey: 'speed',
         type1Hr: 'gustSpeed1hr',
         type12Hr: 'gustSpeed12hr',
-        type24Hr: '',
+        type24Hr: 'gustSpeed24hr',
       }}
     />
   );

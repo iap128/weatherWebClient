@@ -26,7 +26,7 @@ const WindSpeed = () => {
         dataKey: 'speed',
         type1Hr: 'windSpeed1hr',
         type12Hr: 'windSpeed12hr',
-        type24Hr: '',
+        type24Hr: 'windSpeed24hr',
       }}
     />
   );

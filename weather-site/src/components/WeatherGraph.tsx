@@ -17,7 +17,7 @@ const WeatherGraph: FC<GraphProps> = ({ dataKey, type1Hr, type12Hr, type24Hr }) 
   const [queryType, setQueryType] = useState(type1Hr);
   const [value, setValue] = useState<any>([]);
 
-  const onRadioChange = ({ target: { value } }: RadioChangeEvent) => {
+  const onRadioChange = async ({ target: { value } }: RadioChangeEvent) => {
     setRadioValue(value);
 
     switch (value) {
@@ -32,7 +32,7 @@ const WeatherGraph: FC<GraphProps> = ({ dataKey, type1Hr, type12Hr, type24Hr }) 
         break;
     }
 
-    getData();
+    await getData();
   };
 
   const getData = async () => {

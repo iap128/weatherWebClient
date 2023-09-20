@@ -24,7 +24,7 @@ const Temperature = () => {
         dataKey: 'temp',
         type1Hr: 'temperature1hr',
         type12Hr: 'temperature12hr',
-        type24Hr: '',
+        type24Hr: 'temperature24hr',
       }}
     />
   );
