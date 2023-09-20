@@ -14,35 +14,34 @@ const radioOptions = [
 
 const WeatherGraph: FC<GraphProps> = ({ dataKey, type1Hr, type12Hr, type24Hr }) => {
   const [radioValue, setRadioValue] = useState(1);
-  const [queryType, setQueryType] = useState(type1Hr);
   const [value, setValue] = useState<any>([]);
 
-  const onRadioChange = async ({ target: { value } }: RadioChangeEvent) => {
+  const onRadioChange = ({ target: { value } }: RadioChangeEvent) => {
     setRadioValue(value);
-
-    switch (value) {
-      case 1:
-        setQueryType(type1Hr);
-        break;
-      case 12:
-        setQueryType(type12Hr);
-        break;
-      case 24:
-        setQueryType(type24Hr);
-        break;
-    }
-
-    await getData();
+    getData(value);
   };
 
-  const getData = async () => {
-    console.log(queryType);
+  const valueToQuery = (value: number): string => {
+    switch (value) {
+      case 1:
+        return type1Hr;
+      case 12:
+        return type12Hr;
+      case 24:
+        return type24Hr;
+      default:
+        return '';
+    }
+  };
+
+  const getData = async (value: number) => {
+    const queryType = valueToQuery(value);
     const data = await fetchCardData(queryType);
     setValue(data);
   };
 
   useEffectOnce(() => {
-    getData();
+    getData(1);
   });
 
   return (
