@@ -22,7 +22,7 @@ You can run the container locally with `docker run -it -p 4001:3000 client`
 ### Building the Server
 
 Navigate to the server directory and run the command `docker build -f Dockerfile -t server .`
-You can run the server locally with `docker run -it -p 4002:3001 server`
+You can run the server locally with `docker run -it -p 3306:3306 server`
 
 ### Running Full Instance
 
