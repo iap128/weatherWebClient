@@ -14,7 +14,15 @@ const Rain = () => {
 
     getData();
   }, []);
-  return <WeatherCard title='Rain' value={value[0]?.rain} suffix='in' icon={faDroplet} />;
+  return (
+    <WeatherCard
+      title='Rain'
+      value={value[0]?.quantity}
+      suffix='in'
+      icon={faDroplet}
+      tooltip='Accumulated rainfall in the past 60 min'
+    />
+  );
 };
 
 export default Rain;
